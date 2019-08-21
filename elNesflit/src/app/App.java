@@ -7,11 +7,11 @@ public class App {
 
         Serie bb = Netflix.buscarSerie("Breaking Bad");
 
-        Temporada laMejoTemporada = bb.getTemporada(1);
+        Temporada laMejorTemporada = bb.getTemporada(1);
 
         Episodio elTop;
 
-        elTop = laMejoTemporada.buscarWebsodio("Titulo websodio");
+        elTop = laMejorTemporada.buscarWebsodio("Titulo websodio");
 
         elTop.reproducir();
     }

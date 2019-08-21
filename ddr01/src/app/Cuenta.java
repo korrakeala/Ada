@@ -12,7 +12,7 @@ public class Cuenta {
     //Sobrecarga? lo escribi y me daba error, copypastee y anduvo.
 
     public Cuenta(String titular) {
-        this(titular, 0); //Sobrecarga
+        this(titular, 0); //Sobrecarga?
     }
 
     public Cuenta(String titular, double cantidad){
@@ -23,15 +23,12 @@ public class Cuenta {
     public String getTitular() {
         return titular;
     }
-
     public void setTitular(String titular) {
         this.titular = titular;
     }
-
     public double getCantidad() {
         return cantidad;
     }
-
     public void setCantidad(double cantidad) {
         this.cantidad = cantidad;
     }
@@ -47,14 +44,12 @@ public class Cuenta {
         }
     }
 
-    //Retirar me quedo diferente.
-
     public void retirar (double cantidad){
-        this.cantidad -= cantidad;
-        if (this.cantidad < 0) {
+        if ((this.cantidad - cantidad) < 0) {
             this.cantidad = 0;            
+        } else {
+            this.cantidad -= cantidad;
         }
     }
-
     
 }

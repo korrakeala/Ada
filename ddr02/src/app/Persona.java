@@ -78,8 +78,11 @@ public class Persona {
         this.altura = altura;
     }
     
-    //comprobarSexo(char sexo): comprueba que el sexo introducido es correcto.
-    //Si no es correcto, sera H. No sera visible al exterior.
+    private void comprobarSexo(char sexo){
+        if (sexo != 'H' && sexo != 'M') {
+            this.sexo = 'H';
+        }
+    }
 
     //generaDNI(): genera un número aleatorio de 8 cifras, genera a partir de
     //este su número su letra correspondiente. Este método sera invocado cuando

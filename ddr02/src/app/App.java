@@ -23,6 +23,7 @@ public class App {
         persona3.setPeso(54.5);
         persona3.setAltura(1.67);
         
+        
     }
 
     public static void Entrada() {
@@ -37,4 +38,5 @@ public class App {
         System.out.println("Ingrese la altura:");
         App.altura = teclado.nextDouble();
     }
+
 }
