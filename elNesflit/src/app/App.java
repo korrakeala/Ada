@@ -9,10 +9,10 @@ public class App {
 
         Temporada laMejorTemporada = bb.getTemporada(1);
 
-        Episodio elTop;
-
-        elTop = laMejorTemporada.buscarWebsodio("Titulo websodio");
+        Episodio elTop = laMejorTemporada.buscarWebsodio("Titulo websodio");
 
         elTop.reproducir();
+
+        System.out.println(Netflix.CatalogoSeries.toString());
     }
 }
