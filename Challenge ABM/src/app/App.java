@@ -12,8 +12,10 @@ public class App {
         System.out.println("Para eliminar una persona presione 2.");
         System.out.println("Para modificar una persona presione 3.");
         System.out.println("Para ver el listado presione 4.");
+        System.out.println("Para terminar presione 0.");
 
         int opcion = Teclado.nextInt();
+        Teclado.nextLine();
 
         while (opcion > 0) {
 
@@ -43,8 +45,10 @@ public class App {
             System.out.println("Para eliminar una persona presione 2.");
             System.out.println("Para modificar una persona presione 3.");
             System.out.println("Para ver el listado presione 4.");
+            System.out.println("Para terminar presione 0.");
 
             opcion = Teclado.nextInt();
+            Teclado.nextLine();
         }
 
     }
@@ -55,8 +59,10 @@ public class App {
         p.nombre = Teclado.nextLine();
         System.out.println("Ingrese el DNI:");
         p.dni = Teclado.nextInt();
+        Teclado.nextLine();
         System.out.println("Ingrese la edad:");
         p.edad = Teclado.nextInt();
+        Teclado.nextLine();
         ABM.Personas.add(p);
     }
 
@@ -65,33 +71,42 @@ public class App {
         String n = Teclado.nextLine();
         System.out.println("Ingrese el DNI:");
         int id = Teclado.nextInt();
+        Teclado.nextLine();
+        Persona persona = null;
 
         for (Persona p : ABM.Personas) {
             if (n == p.nombre && id == p.dni) {
-                ABM.Personas.remove(p);
+                persona = p;
             }
         }
-
+        ABM.Personas.remove(persona);
+        System.out.println("El registro de " + persona.dni + " ha sido eliminado.");
     }
 
     public static void modifica() {
-        System.out.println("Ingrese el nombre:");
+        System.out.println("Ingrese el nombre de la persona a modificar:");
         String n = Teclado.nextLine();
-        System.out.println("Ingrese el DNI:");
+        System.out.println("Ingrese el DNI de la persona a modificar:");
         int id = Teclado.nextInt();
+        Teclado.nextLine();
 
         for (Persona p : ABM.Personas) {
-            if (n == p.nombre && id == p.dni) {
+            if (p.nombre.equals(n) && id == p.dni) {
+                System.out.println(p.toString() + "seleccionado para modificacion.");
                 System.out.println("Ingrese el nuevo nombre:");
                 p.nombre = Teclado.nextLine();
                 System.out.println("Ingrese el nuevo DNI:");
                 p.dni = Teclado.nextInt();
+                Teclado.nextLine();
                 System.out.println("Ingrese la nueva edad:");
                 p.edad = Teclado.nextInt();
-                ABM.Personas.add(p);
+                Teclado.nextLine();
+            } else {
+                if (!p.nombre.equals(n) || id != p.dni) {
+                    System.out.println("La persona no figura en registros.");
+                }
             }
         }
-
     }
 
     public static void listar() {
