@@ -72,15 +72,20 @@ public class App {
         System.out.println("Ingrese el DNI:");
         int id = Teclado.nextInt();
         Teclado.nextLine();
-        Persona persona = null;
+        Persona personaEncontrada = null;
 
         for (Persona p : ABM.Personas) {
-            if (n == p.nombre && id == p.dni) {
-                persona = p;
+            if (p.nombre.equals(n) && id == p.dni) {
+                personaEncontrada = p;
             }
         }
-        ABM.Personas.remove(persona);
-        System.out.println("El registro de " + persona.dni + " ha sido eliminado.");
+        if (!personaEncontrada.nombre.equals(n) || id != personaEncontrada.dni) {
+            System.out.println("Persona no encontrada.");
+        }
+        ABM.Personas.remove(personaEncontrada);
+        if (personaEncontrada != null) {
+            System.out.println("El registro de " + personaEncontrada.dni + " ha sido eliminado.");
+        }
     }
 
     public static void modifica() {
@@ -89,23 +94,28 @@ public class App {
         System.out.println("Ingrese el DNI de la persona a modificar:");
         int id = Teclado.nextInt();
         Teclado.nextLine();
+        Persona personaEncontrada = null;
 
         for (Persona p : ABM.Personas) {
             if (p.nombre.equals(n) && id == p.dni) {
                 System.out.println(p.toString() + "seleccionado para modificacion.");
                 System.out.println("Ingrese el nuevo nombre:");
-                p.nombre = Teclado.nextLine();
+                p.setNombre(Teclado.nextLine());
                 System.out.println("Ingrese el nuevo DNI:");
-                p.dni = Teclado.nextInt();
+                p.setDni(Teclado.nextInt());
                 Teclado.nextLine();
                 System.out.println("Ingrese la nueva edad:");
-                p.edad = Teclado.nextInt();
+                p.setEdad(Teclado.nextInt());
                 Teclado.nextLine();
-            } else {
-                if (!p.nombre.equals(n) || id != p.dni) {
-                    System.out.println("La persona no figura en registros.");
-                }
+                personaEncontrada = p;
+                break;
             }
+        }
+        if (!personaEncontrada.nombre.equals(n) || id != personaEncontrada.dni) {
+            System.out.println("Persona no encontrada.");
+        }
+        if (personaEncontrada != null) {
+            System.out.println("El registro de " + personaEncontrada.dni + " ha sido modificado.");
         }
     }
 
