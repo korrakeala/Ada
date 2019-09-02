@@ -8,11 +8,15 @@ public class App {
 
     public static void main(String[] args) throws Exception {
 
+        System.out.println("=======================================");
+        System.out.println("");
         System.out.println("Para agregar una persona presione 1.");
         System.out.println("Para eliminar una persona presione 2.");
         System.out.println("Para modificar una persona presione 3.");
         System.out.println("Para ver el listado presione 4.");
         System.out.println("Para terminar presione 0.");
+        System.out.println("");
+        System.out.println("=======================================");
 
         int opcion = Teclado.nextInt();
         Teclado.nextLine();
@@ -41,11 +45,15 @@ public class App {
                 break;
             }
 
+            System.out.println("=======================================");
+            System.out.println("");
             System.out.println("Para agregar una persona presione 1.");
             System.out.println("Para eliminar una persona presione 2.");
             System.out.println("Para modificar una persona presione 3.");
             System.out.println("Para ver el listado presione 4.");
             System.out.println("Para terminar presione 0.");
+            System.out.println("");
+            System.out.println("=======================================");
 
             opcion = Teclado.nextInt();
             Teclado.nextLine();
