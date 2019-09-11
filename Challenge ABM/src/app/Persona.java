@@ -9,7 +9,6 @@ public class Persona {
     public int dni;
     public int edad;
     public String email;
-    public Usuario usuario;
 
     public Persona(String nombre, int dni, int edad) {
         this.nombre = nombre;
@@ -54,7 +53,7 @@ public class Persona {
 
     @Override
     public String toString() {
-        return "Persona: " + nombre + ", dni: " + dni + " , usuario: " + usuario + ".";
+        return "Persona: " + nombre + ", dni: " + dni + ".";
     }
 
     public void altaUsuario(){
